@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="todo-box">
+                <div class="todo-box-header">
+                    <h1>Todo List</h1>
+                </div>
+                <div class="todo-box-body">
+                    <div class="todo-form">
+                        <div class="todo-form-group">
+                            <label for="todo-input">Task</label>
+                            <input
+                                type="text"
+                                class="todo-input"
+                                placeholder="Add a new task"
+                                id="todo-input"
+                            />
+                        </div>
+                        <div class="todo-form-group">
+                            <label for="todo-type">Type</label>
+                            <select
+                                name="todo-type"
+                                class="todo-type"
+                                id="todo-type"
+                            >
+                                <option value="Task">Task</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Done">Done</option>
+                            </select>
+                        </div>
+                        <button class="todo-button" onclick="addTodo()">
+                            Add
+                        </button>
+                    </div>
+                    <div class="todo-list">
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <th>Task</th>
+                                    <th>Type</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="main.js"></script>
+    </body>
+</html>

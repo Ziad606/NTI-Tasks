@@ -1,0 +1,128 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.todo-box {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 32px 24px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.todo-box-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.todo-box-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #334155;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.todo-box-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.todo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #f8fafc;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.todo-form-group {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.todo-input,
+.todo-type {
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+    background-color: #ffffff;
+}
+
+.todo-input:focus,
+.todo-type:focus {
+    border: 1.5px solid #60a5fa;
+}
+
+.todo-button {
+    padding: 10px 10px;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #4f46e5;
+    text-align: center;
+}
+
+.todo-button:hover {
+    background-color: #4338ca;
+}
+
+.todo-list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.todo-list table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.todo-list th,
+.todo-list td {
+    padding: 12px 10px;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.todo-list th {
+    background: #f1f5f9;
+    color: #334155;
+    font-weight: 700;
+    border-bottom: 1.5px solid #e2e8f0;
+    text-align: center;
+}
+
+.todo-list td {
+    border-bottom: 1px solid #e2e8f0;
+    text-align: center;
+}
