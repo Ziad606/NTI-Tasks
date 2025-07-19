@@ -1,0 +1,207 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma;
+    background: #764ba2;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+h1 {
+    background: #4b3165;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+#productForm {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    background: #fafafa;
+    border-bottom: 3px solid #eee;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+input,
+textarea,
+select {
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+#submitButton {
+    grid-column: 1 / -1;
+    background: #4b3165;
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#submitButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+#submitButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#searchInput {
+    margin: 30px 40px;
+    padding: 15px 25px;
+    font-size: 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    background: white;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.filter-group select {
+    height: 100%;
+    margin: 30px 40px;
+}
+.product-list {
+    padding: 0 40px 40px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background: #4b3165;
+}
+
+th {
+    padding: 20px;
+    text-align: left;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+}
+
+td {
+    padding: 18px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+    font-size: 0.95em;
+}
+
+tbody tr {
+    transition: all 0.3s ease;
+}
+
+tbody tr:hover {
+    background: #f8f9ff;
+    transform: scale(1.01);
+}
+
+.deleteButton,
+.editButton {
+    padding: 8px 16px;
+    margin: 2px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.deleteButton {
+    background: #ff6b6b;
+    color: white;
+}
+
+.editButton {
+    background: #44a08d;
+    color: white;
+}
+
+.deleteButton:hover,
+.editButton:hover {
+    transform: translateY(-2px);
+}
