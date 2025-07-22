@@ -1,0 +1,140 @@
+.how-section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background: #fff;
+}
+
+.how-container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.how-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #0f172a;
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fade-in-down 1s;
+  @media (min-width: 768px) {
+    font-size: 2.25rem;
+  }
+}
+
+.how-list {
+  display: grid;
+  gap: 4rem;
+  align-items: center;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.how-card {
+  animation: fade-in-up 1s;
+}
+
+.how-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.how-card-title-investor {
+  color: #10b981;
+}
+.how-card-title-startup {
+  color: #0f172a;
+}
+
+.how-card-steps {
+  position: relative;
+  padding-left: 2.5rem;
+}
+.how-card-steps::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-left: 2px solid #e2e8f0;
+}
+
+.how-card-step {
+  margin-bottom: 2rem;
+  position: relative;
+  transition: transform 0.3s;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.how-card-step:last-child {
+  margin-bottom: 0;
+}
+
+.how-card-step-num {
+  position: absolute;
+  left: -2.125rem;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  background: #10b981;
+  color: #fff;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 4px 6px 0 rgba(30, 41, 59, 0.1);
+}
+.how-card-title-startup .how-card-step-num {
+  background: #1e293b;
+}
+
+.how-card-step-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.5rem;
+}
+
+.how-card-step-desc {
+  color: #475569;
+}
+
+.how-img {
+  display: none;
+  animation: fade-in-up 1s;
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+.how-img-el {
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px 0 rgba(30, 41, 59, 0.2);
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
