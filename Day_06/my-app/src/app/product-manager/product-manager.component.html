@@ -1,0 +1,57 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Product Manager</h1>
+  <form (ngSubmit)="addProduct()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        [(ngModel)]="newProduct.name"
+        name="name"
+        placeholder="Enter product name"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input
+        type="number"
+        class="form-control"
+        id="price"
+        [(ngModel)]="newProduct.price"
+        name="price"
+        placeholder="Enter product price"
+      />
+    </div>
+    <button type="submit" id="addProduct" class="btn btn-primary">
+      {{ isEditing ? "Update Product" : "Add Product" }}
+    </button>
+  </form>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(product of products; track product.id) {
+      <tr>
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td class="d-flex gap-2">
+          <button class="btn btn-danger" (click)="deleteProduct(product.id)">
+            Delete
+          </button>
+          <button class="btn btn-primary" (click)="editProduct(product.id)">
+            Edit
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
