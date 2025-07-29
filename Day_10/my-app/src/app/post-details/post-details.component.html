@@ -1,0 +1,97 @@
+<div class="container mt-4">
+  <!-- Loading State -->
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-2">Loading post details...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error && !loading" class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Error!</h4>
+    <p>{{ error }}</p>
+    <hr />
+    <button class="btn btn-outline-danger" (click)="loadPost()">
+      Try Again
+    </button>
+  </div>
+
+  <!-- Post Details -->
+  <div *ngIf="!loading && !error && post.id" class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+          <h2 class="card-title mb-0">Post Details</h2>
+        </div>
+        <div class="card-body">
+          <div class="row mb-3">
+            <div class="col-sm-3">
+              <strong class="text-muted">Post ID:</strong>
+            </div>
+            <div class="col-sm-9">
+              <span class="badge bg-secondary">{{ post.id }}</span>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-sm-3">
+              <strong class="text-muted">User ID:</strong>
+            </div>
+            <div class="col-sm-9">
+              <span class="badge bg-info">{{ post.userId }}</span>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-sm-3">
+              <strong class="text-muted">Title:</strong>
+            </div>
+            <div class="col-sm-9">
+              <h4 class="text-primary">{{ post.title }}</h4>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-sm-3">
+              <strong class="text-muted">Content:</strong>
+            </div>
+            <div class="col-sm-9">
+              <p class="lead">{{ post.body }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-outline-secondary" routerLink="/posts">
+              <i class="bi bi-arrow-left"></i> Back to Posts
+            </button>
+            <div>
+              <button
+                class="btn btn-warning me-2"
+                routerLink="/posts/{{ post.id }}/update"
+              >
+                <i class="bi bi-pencil"></i> Edit
+              </button>
+              <button class="btn btn-danger" (click)="deletePost(post.id)">
+                <i class="bi bi-trash"></i> Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No Post Found -->
+  <div *ngIf="!loading && !error && !post.id" class="text-center">
+    <div class="alert alert-warning" role="alert">
+      <h4 class="alert-heading">Post Not Found!</h4>
+      <p>The post you're looking for doesn't exist or has been removed.</p>
+      <hr />
+      <button class="btn btn-outline-warning" routerLink="/posts">
+        Back to Posts
+      </button>
+    </div>
+  </div>
+</div>

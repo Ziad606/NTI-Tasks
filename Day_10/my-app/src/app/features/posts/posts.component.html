@@ -1,0 +1,119 @@
+<div class="container mt-4">
+  <!-- Header Section -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <h1 class="display-4 text-primary mb-3">
+        <i class="bi bi-file-text me-2"></i>Posts Manager
+      </h1>
+      <p class="lead text-muted">Browse and manage all posts from the API</p>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="row">
+    <div class="col-12 text-center">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p class="mt-3 text-muted">Loading posts...</p>
+    </div>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error && !loading" class="row">
+    <div class="col-12">
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle me-2"></i>
+        {{ error }}
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-primary" (click)="loadPosts()">
+          <i class="bi bi-arrow-clockwise me-2"></i>Try Again
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Posts Grid -->
+  <div *ngIf="!loading && !error" class="row">
+    <!-- Posts Count -->
+    <div class="col-12 mb-3">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="badge bg-primary fs-6">
+          <i class="bi bi-collection me-1"></i>
+          {{ posts.length }} Posts
+        </span>
+        <button class="btn btn-outline-primary btn-sm" (click)="loadPosts()">
+          <i class="bi bi-arrow-clockwise me-1"></i>Refresh
+        </button>
+      </div>
+    </div>
+
+    <!-- Posts Cards -->
+    <div *ngFor="let post of posts" class="col-lg-4 col-md-6 col-sm-12 mb-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-header bg-light border-0">
+          <div class="d-flex justify-content-between align-items-start">
+            <h5 class="card-title mb-1 text-truncate" [title]="post.title">
+              {{ post.title }}
+            </h5>
+            <span class="badge bg-secondary ms-2">#{{ post.id }}</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-text text-muted">
+            {{ post.body }}
+          </p>
+        </div>
+        <div class="card-footer bg-white border-0">
+          <div class="d-flex justify-content-between align-items-center">
+            <small class="text-muted">
+              <i class="bi bi-person me-1"></i>
+              User {{ post.userId }}
+            </small>
+            <div class="btn-group" role="group">
+              <button
+                class="btn btn-outline-primary btn-sm"
+                routerLink="/posts/{{ post.id }}"
+              >
+                Details
+              </button>
+
+              <button
+                class="btn btn-outline-primary btn-sm"
+                routerLink="/posts/{{ post.id }}/update"
+              >
+                Edit
+              </button>
+
+              <button
+                class="btn btn-outline-danger btn-sm"
+                (click)="deletePost(post.id)"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No Posts State -->
+    <div *ngIf="posts.length === 0 && !loading && !error" class="col-12">
+      <div class="text-center py-5">
+        <i class="bi bi-inbox display-1 text-muted"></i>
+        <h3 class="mt-3 text-muted">No Posts Found</h3>
+        <p class="text-muted">There are no posts to display at the moment.</p>
+        <button class="btn btn-primary" (click)="loadPosts()">
+          <i class="bi bi-arrow-clockwise me-2"></i>Load Posts
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

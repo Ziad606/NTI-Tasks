@@ -1,0 +1,76 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow">
+        <div class="card-header bg-warning text-dark">
+          <h2 class="card-title mb-0">
+            <i class="bi bi-pencil-square me-2"></i>Edit Post
+          </h2>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="title" class="form-label">
+                <strong>Title</strong>
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                formControlName="title"
+                placeholder="Enter post title"
+              />
+              <div
+                *ngIf="
+                  postForm.get('title')?.invalid &&
+                  postForm.get('title')?.touched
+                "
+                class="text-danger mt-1"
+              >
+                Title is required
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="body" class="form-label">
+                <strong>Content</strong>
+              </label>
+              <textarea
+                class="form-control"
+                id="body"
+                rows="6"
+                formControlName="body"
+                placeholder="Enter post content"
+              ></textarea>
+              <div
+                *ngIf="
+                  postForm.get('body')?.invalid && postForm.get('body')?.touched
+                "
+                class="text-danger mt-1"
+              >
+                Content is required
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                (click)="onCancel()"
+              >
+                <i class="bi bi-x-circle me-1"></i>Cancel
+              </button>
+              <button
+                type="submit"
+                class="btn btn-warning"
+                [disabled]="postForm.invalid"
+              >
+                <i class="bi bi-check-circle me-1"></i>Update Post
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
